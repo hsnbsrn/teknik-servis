@@ -5,18 +5,30 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NdComponent } from './nd/nd.component';
-
+import { HttpClientModule } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
+import { DComponent } from './d/d.component';
+import { TooltipModule } from 'ngx-bootstrap/tooltip';
+import { AccordionModule } from 'ngx-bootstrap/accordion';
 
 @NgModule({
-  declarations: [		
+  declarations: [			
     AppComponent,
-      NdComponent
+      NdComponent,
+      DComponent
    ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    MatSliderModule
+    MatSliderModule,
+    HttpClientModule,
+    AppRoutingModule,
+    BrowserModule,
+    FormsModule,
+    TooltipModule.forRoot(),
+    AccordionModule,
+    BrowserAnimationsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
