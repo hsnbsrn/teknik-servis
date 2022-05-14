@@ -1,25 +1,26 @@
+<form #cihazAdd="ngForm" (ngSubmit)="add(cihazAdd)" id="myForm">
 <div class="form-group">
   <div class="col-md-6 mb-3">
-    <Label>İsim Soyisim</Label>
-  <input type="text" class="form-control" name="name" id="name" required/>
+    <Label>Ad Soyad</Label>
+  <input type="text" #adSoyad="ngModel" [(ngModel)]="model.adSoyad" class="form-control" name="name" id="name" required/>
 </div>
 </div>
 <div class="form-group">
   <div class="col-md-6 mb-3">
     <Label>Mail</Label>
-  <input type="text" class="form-control" name="mail" id="mail" required/>
+  <input type="text" #mail="ngModel" [(ngModel)]="model.mail" class="form-control" name="mail" id="mail" required/>
 </div>
 </div>
 <div class="form-group">
   <div class="col-md-6 mb-3">
     <Label>Telefon No</Label>
-  <input type="text" class="form-control" name="phone" id="phone" required/>
+  <input type="text" #telno="ngModel" [(ngModel)]="model.telNo" class="form-control" name="phone" id="phone" required/>
 </div>
 </div>
 <div class="form-group">
   <div class="col-md-6 mb-3">
     <label >İşlem</label>
-  <select class="form-control" name="islemid" id="islemid" requiredid="islemid">
+  <select #islem="ngModel" [(ngModel)]="model.islem" class="form-control" name="islemid" id="islemid" requiredid="islemid">
     <option *ngFor="let islem of islems" [value]="islem.id" >{{islem.ad}}</option>
   </select>
 </div>
@@ -27,9 +28,10 @@
 <div class="form-group">
   <div class="col-md-6 mb-3">
     <Label>Detaylı İşlem</Label>
-  <textarea type="text" class="form-control" name="s" id="s" required></textarea>
+  <textarea type="text"  #detay="ngModel" [(ngModel)]="model.detayIslem" class="form-control" name="s" id="s" required></textarea>
 </div>
 </div>
-<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+<button type="submit" class="btn btn-primary" >
   Ekle
 </button>
+</form>
