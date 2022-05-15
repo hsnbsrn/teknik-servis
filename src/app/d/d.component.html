@@ -14,7 +14,7 @@
           <th scope="col">Detay</th>
       </thead>
       <tbody>
-        <tr *ngFor="let c of mcihazs">
+        <tr *ngFor="let c of mcihazs | filter:filterTerm">
           <th scope="row"></th>
           <td scope="row">{{c.adSoyad}}</td>
           <td scope="row">{{c.mail}}</td>

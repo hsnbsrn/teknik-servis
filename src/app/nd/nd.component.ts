@@ -23,7 +23,7 @@ export class NdComponent implements OnInit {
     })
   }
   add(form:NgForm){
-    this.mcihazService.addPers(this.model).subscribe(data=>{})
+    this.mcihazService.addCihaz(this.model).subscribe(data=>{})
   }
 
 }

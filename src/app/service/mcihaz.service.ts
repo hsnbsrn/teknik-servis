@@ -29,7 +29,7 @@ getMcihaz():Observable<Mcihaz[]>{
 getMcihazById(id:any){
   return this.httpClient.get<Mcihaz[]>(this.path+id)
 }
-addPers(c:Mcihaz){
+addCihaz(c:Mcihaz){
   const httpOptions={
     headers:new HttpHeaders({
       'Content-Type':'application/json',
@@ -41,5 +41,22 @@ addPers(c:Mcihaz){
     catchError(this.handleError)
   );
 }
+
+updateCihaz(data:Mcihaz):Observable<Mcihaz>{
+  const httpOptions={
+    headers:new HttpHeaders({
+      'Content-Type':'application/json',
+      'Authorization':'Token'
+    })
+  }
+  return this.httpClient.put<Mcihaz>(this.path,data,httpOptions).pipe(
+    tap(data=> console.log(JSON.stringify(data))),
+    catchError(this.handleError))
+}
+
+deleteCİhaz(id:any): Observable<any>{
+return this.httpClient.delete(this.path+id)
+} 
+
 }
 
