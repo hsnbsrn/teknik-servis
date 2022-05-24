@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Islem } from '../models/islem';
 import { Mcihaz } from '../models/mcihaz';
+import { AlertifyService } from '../service/alertifyjs.service';
 import { IslemServiceService } from '../service/islem.service';
 import { McihazService } from '../service/mcihaz.service';
 
@@ -13,7 +14,7 @@ import { McihazService } from '../service/mcihaz.service';
 })
 export class NdComponent implements OnInit {
 
-  constructor(private islemService:IslemServiceService,private mcihazService:McihazService) { }
+  constructor(private islemService:IslemServiceService,private mcihazService:McihazService,private alertify:AlertifyService) { }
 
   islems:Islem[]|undefined
   model:Mcihaz= new Mcihaz();
@@ -24,6 +25,7 @@ export class NdComponent implements OnInit {
   }
   add(form:NgForm){
     this.mcihazService.addCihaz(this.model).subscribe(data=>{})
+    this.alertify.success("Cihaz eklendi");
   }
 
 }

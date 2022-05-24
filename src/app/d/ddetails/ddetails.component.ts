@@ -13,7 +13,7 @@ export class DdetailsComponent implements OnInit {
 
   constructor(private mCihazService:McihazService,private activatedRoute:ActivatedRoute) { }
 
-  cihaz:Mcihaz[]|undefined;
+  cihaz:Mcihaz|undefined;
   model:Mcihaz=new Mcihaz();
 
   ngOnInit() {
@@ -25,7 +25,9 @@ export class DdetailsComponent implements OnInit {
   getById(id:any){
     this.mCihazService.getMcihazById(id).subscribe(data=>{
       this.cihaz=data;
-      console.log(this.cihaz)
+      this.model.adSoyad=this.cihaz.adSoyad;
+      this.model.id=this.cihaz.id;
+      this.model.islem=this.cihaz.islem
     })
   }
   update(form:NgForm){

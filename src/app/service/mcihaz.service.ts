@@ -27,7 +27,7 @@ getMcihaz():Observable<Mcihaz[]>{
   return this.httpClient.get<Mcihaz[]>(this.path);
 }
 getMcihazById(id:any){
-  return this.httpClient.get<Mcihaz[]>(this.path+id)
+  return this.httpClient.get<Mcihaz>(this.path+id)
 }
 addCihaz(c:Mcihaz){
   const httpOptions={

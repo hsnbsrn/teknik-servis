@@ -11,12 +11,14 @@ import { DComponent } from './d/d.component';
 import { TooltipModule } from 'ngx-bootstrap/tooltip';
 import { AccordionModule } from 'ngx-bootstrap/accordion';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
+import { DdetailsComponent } from './d/ddetails/ddetails.component';
 
 @NgModule({
   declarations: [			
     AppComponent,
       NdComponent,
-      DComponent
+      DComponent,
+      DdetailsComponent
    ],
   imports: [
     BrowserModule,
