@@ -12,13 +12,16 @@ import { TooltipModule } from 'ngx-bootstrap/tooltip';
 import { AccordionModule } from 'ngx-bootstrap/accordion';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { DdetailsComponent } from './d/ddetails/ddetails.component';
+import { ModalModule } from 'ngx-bootstrap/modal';
+import { IslemComponent } from './islem/islem.component';
 
 @NgModule({
-  declarations: [			
+  declarations: [				
     AppComponent,
       NdComponent,
       DComponent,
-      DdetailsComponent
+      DdetailsComponent,
+      IslemComponent
    ],
   imports: [
     BrowserModule,
@@ -32,7 +35,9 @@ import { DdetailsComponent } from './d/ddetails/ddetails.component';
     TooltipModule.forRoot(),
     AccordionModule,
     BrowserAnimationsModule,
-    Ng2SearchPipeModule
+    Ng2SearchPipeModule,
+    ModalModule.forRoot()
+
   ],
   providers: [],
   bootstrap: [AppComponent]

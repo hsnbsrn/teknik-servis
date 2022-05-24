@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, TemplateRef } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { Islem } from 'src/app/models/islem';
@@ -6,6 +6,7 @@ import { Mcihaz } from 'src/app/models/mcihaz';
 import { AlertifyService } from 'src/app/service/alertifyjs.service';
 import { IslemServiceService } from 'src/app/service/islem.service';
 import { McihazService } from 'src/app/service/mcihaz.service';
+import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
 
 @Component({
   selector: 'app-ddetails',
@@ -13,8 +14,8 @@ import { McihazService } from 'src/app/service/mcihaz.service';
   styleUrls: ['./ddetails.component.css']
 })
 export class DdetailsComponent implements OnInit {
-
-  constructor(private islemService:IslemServiceService,private mCihazService:McihazService,private activatedRoute:ActivatedRoute,private alertify:AlertifyService) { }
+  modalRef?: BsModalRef;
+  constructor(private modalService: BsModalService,private islemService:IslemServiceService,private mCihazService:McihazService,private activatedRoute:ActivatedRoute,private alertify:AlertifyService) { }
 
   cihaz:Mcihaz|undefined;
   model:Mcihaz=new Mcihaz();
@@ -44,5 +45,8 @@ export class DdetailsComponent implements OnInit {
       console.log("silindi")
     })
   }
-
+  
+  openModal(template: TemplateRef<any>) {
+    this.modalRef = this.modalService.show(template);
+  }
 }
