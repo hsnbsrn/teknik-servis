@@ -1,8 +1,8 @@
 <form #cihazAdd="ngForm" (ngSubmit)="update(cihazAdd)" id="myForm">
     <div class="form-group">
         <div class="col-md-6 mb-3">
-            <Label>Ad Soyad</Label>
-          <input type="text" #adSoyad="ngModel" [(ngModel)]="model.id" value="{{cihaz?.id}}" readonly="readonly"  class="form-control" name="id" id="id" required/>
+            <Label>ID</Label>
+          <input type="text" #id="ngModel" [(ngModel)]="model.id" value="{{cihaz?.id}}" readonly="readonly"  class="form-control" name="id" id="id" required/>
         </div>
       <div class="col-md-6 mb-3">
         <Label>Ad Soyad</Label>
@@ -25,7 +25,7 @@
       <div class="col-md-6 mb-3">
         <label >İşlem</label>
       <select #islem="ngModel" [(ngModel)]="model.islem" class="form-control" name="islemid" id="islemid" requiredid="islemid">
-        <!-- <option *ngFor="let islem of islems" [value]="islem.id" >{{islem.ad}}</option> -->
+        <option *ngFor="let islem of islems" [value]="islem.id" >{{islem.ad}}      {{islem.ucret}} TL</option>
       </select>
     </div>
     </div>
@@ -36,6 +36,6 @@
     </div>
     </div>
     <button type="submit" class="btn btn-primary" >
-      Ekle
+      Güncelle
     </button>
     </form>

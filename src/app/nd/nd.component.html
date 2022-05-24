@@ -21,7 +21,7 @@
   <div class="col-md-6 mb-3">
     <label >İşlem</label>
   <select #islem="ngModel" [(ngModel)]="model.islem" class="form-control" name="islemid" id="islemid" requiredid="islemid">
-    <option *ngFor="let islem of islems" [value]="islem.id" >{{islem.ad}}</option>
+    <option *ngFor="let islem of islems" [value]="islem.id" >{{islem.ad}}      {{islem.ucret}} TL</option>
   </select>
 </div>
 </div>

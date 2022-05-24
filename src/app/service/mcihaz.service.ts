@@ -49,7 +49,7 @@ updateCihaz(data:Mcihaz):Observable<Mcihaz>{
       'Authorization':'Token'
     })
   }
-  return this.httpClient.put<Mcihaz>(this.path,data,httpOptions).pipe(
+  return this.httpClient.put<Mcihaz>(this.path+data.id,data,httpOptions).pipe(
     tap(data=> console.log(JSON.stringify(data))),
     catchError(this.handleError))
 }

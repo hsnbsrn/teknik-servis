@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
+import { Islem } from 'src/app/models/islem';
 import { Mcihaz } from 'src/app/models/mcihaz';
+import { IslemServiceService } from 'src/app/service/islem.service';
 import { McihazService } from 'src/app/service/mcihaz.service';
 
 @Component({
@@ -11,16 +13,18 @@ import { McihazService } from 'src/app/service/mcihaz.service';
 })
 export class DdetailsComponent implements OnInit {
 
-  constructor(private mCihazService:McihazService,private activatedRoute:ActivatedRoute) { }
+  constructor(private islemService:IslemServiceService,private mCihazService:McihazService,private activatedRoute:ActivatedRoute) { }
 
   cihaz:Mcihaz|undefined;
   model:Mcihaz=new Mcihaz();
-
+  islems:Islem[]|undefined
   ngOnInit() {
     this.activatedRoute.params.subscribe(params=>{
-      this.getById(params["id"])
+      this.getById(params["id"]);
     });
-
+    this.islemService.getIslem().subscribe(data=>{
+      this.islems=data;
+    })
   }
   getById(id:any){
     this.mCihazService.getMcihazById(id).subscribe(data=>{
