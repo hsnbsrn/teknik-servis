@@ -19,6 +19,12 @@
 </div>
 <div class="form-group">
   <div class="col-md-6 mb-3">
+    <Label>Cihaz</Label>
+  <textarea type="text"  #cihaz="ngModel" [(ngModel)]="model.cihaz" class="form-control" name="s" id="s" required></textarea>
+</div>
+</div>
+<div class="form-group">
+  <div class="col-md-6 mb-3">
     <label >İşlem</label>
   <select #islem="ngModel" [(ngModel)]="model.islem" class="form-control" name="islemid" id="islemid" requiredid="islemid">
     <option *ngFor="let islem of islems" [value]="islem.id" >{{islem.ad}}      {{islem.ucret}} TL</option>
@@ -29,6 +35,12 @@
   <div class="col-md-6 mb-3">
     <Label>Detaylı İşlem</Label>
   <textarea type="text"  #detay="ngModel" [(ngModel)]="model.detayIslem" class="form-control" name="s" id="s" required></textarea>
+</div>
+</div>
+<div class="form-group">
+  <div class="col-md-6 mb-3">
+    <Label>Getirilen</Label>
+  <textarea type="text"  #getirilen="ngModel" [(ngModel)]="model.getirilen" class="form-control" name="s" id="s" required></textarea>
 </div>
 </div>
 <button type="submit" class="btn btn-primary" >

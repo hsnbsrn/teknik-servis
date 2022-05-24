@@ -3,6 +3,7 @@ import { NgForm } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { Islem } from 'src/app/models/islem';
 import { Mcihaz } from 'src/app/models/mcihaz';
+import { AlertifyService } from 'src/app/service/alertifyjs.service';
 import { IslemServiceService } from 'src/app/service/islem.service';
 import { McihazService } from 'src/app/service/mcihaz.service';
 
@@ -13,7 +14,7 @@ import { McihazService } from 'src/app/service/mcihaz.service';
 })
 export class DdetailsComponent implements OnInit {
 
-  constructor(private islemService:IslemServiceService,private mCihazService:McihazService,private activatedRoute:ActivatedRoute) { }
+  constructor(private islemService:IslemServiceService,private mCihazService:McihazService,private activatedRoute:ActivatedRoute,private alertify:AlertifyService) { }
 
   cihaz:Mcihaz|undefined;
   model:Mcihaz=new Mcihaz();
@@ -36,6 +37,7 @@ export class DdetailsComponent implements OnInit {
   }
   update(form:NgForm){
     this.mCihazService.updateCihaz(this.model).subscribe(data=>{})
+    this.alertify.success("Güncellendi");
   }
   delete(){
     this.mCihazService.deleteCİhaz(this.model.id).subscribe(()=>{
