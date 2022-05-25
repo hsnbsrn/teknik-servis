@@ -30,7 +30,7 @@ export class IslemServiceService {
     return this.httpClient.get<Islem>(this.path+id)
   }
 
-  addCihaz(c:Islem){
+  addIslem(c:Islem){
     const httpOptions={
       headers:new HttpHeaders({
         'Content-Type':'application/json',
@@ -43,7 +43,7 @@ export class IslemServiceService {
     );
   }
 
-  updateCihaz(data:Islem):Observable<Islem>{
+  updateIslem(data:Islem):Observable<Islem>{
     const httpOptions={
       headers:new HttpHeaders({
         'Content-Type':'application/json',

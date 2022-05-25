@@ -1,4 +1,4 @@
-table {
+/* table {
     counter-reset: row-num-1;
   }
   table tr {
@@ -6,4 +6,18 @@ table {
   }
   table tbody tr th:first-child::before {
       content: counter(row-num) " ";
+  } */
+
+  accordion accordion-group table tr {
+    counter-increment: row-num;
+  }
+  accordion accordion-group table tbody tr th:first-child::before {
+      content: counter() " ";
+  }
+
+  accordion accordion-group table tr {
+    counter-increment: row-num;
+  }
+  accordion accordion-group ng-container table tbody tr th:first-child::before {
+      content: counter() " ";
   }

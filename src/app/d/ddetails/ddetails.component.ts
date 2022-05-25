@@ -33,7 +33,11 @@ export class DdetailsComponent implements OnInit {
       this.cihaz=data;
       this.model.adSoyad=this.cihaz.adSoyad;
       this.model.id=this.cihaz.id;
-      this.model.islem=this.cihaz.islem
+      this.model.islem=this.cihaz.islem;
+      this.model.cihaz=this.cihaz.cihaz;
+      this.model.detayIslem=this.cihaz.detayIslem;
+      this.model.mail=this.cihaz.mail;
+      this.model.telNo=this.cihaz.telNo;
     })
   }
   update(form:NgForm){
