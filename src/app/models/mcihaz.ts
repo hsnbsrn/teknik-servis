@@ -11,4 +11,6 @@ export class Mcihaz {
     btarih:Date|undefined
     durum:number|undefined
     cihaz:string|undefined
+    ucret:number|undefined
+    ekstra:string|undefined
 }

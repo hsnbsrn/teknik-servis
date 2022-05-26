@@ -17,6 +17,7 @@ export class DdetailsComponent implements OnInit {
   modalRef?: BsModalRef;
   constructor(private modalService: BsModalService,private islemService:IslemServiceService,private mCihazService:McihazService,private activatedRoute:ActivatedRoute,private alertify:AlertifyService) { }
 
+  i:number|undefined
   cihaz:Mcihaz|undefined;
   model:Mcihaz=new Mcihaz();
   islems:Islem[]|undefined
@@ -38,6 +39,8 @@ export class DdetailsComponent implements OnInit {
       this.model.detayIslem=this.cihaz.detayIslem;
       this.model.mail=this.cihaz.mail;
       this.model.telNo=this.cihaz.telNo;
+      this.model.ucret=this.cihaz.ucret;
+      this.model.ekstra=this.cihaz.ekstra 
     })
   }
   update(form:NgForm){
@@ -52,5 +55,21 @@ export class DdetailsComponent implements OnInit {
   
   openModal(template: TemplateRef<any>) {
     this.modalRef = this.modalService.show(template);
+  }
+
+  up(form:NgForm){
+    var i : number;
+    var j : number= +this.model.ekstra!;
+    var t : number;
+    i = this.model.ucret!
+    t = i + j;
+    console.log(typeof(i))
+    console.log(typeof(j))
+    console.log("İ "+i)
+    console.log("j "+j)
+    console.log("t "+t)
+    this.model.ucret = t;
+    this.mCihazService.updateCihaz(this.model).subscribe(data=>{})
+    this.alertify.success("Güncellendi");
   }
 }

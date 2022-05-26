@@ -40,6 +40,7 @@
     </button>
     </form>
     <button type="button" class="btn btn-danger" (click)="openModal(template)">Sil</button>
+    <button type="button" class="btn btn-warning" (click)="openModal(template1)">Ekstra Ucret Ekle</button>
     <ng-template #template>
       <div class="modal-header">
         <h4 class="modal-title pull-left">Modal</h4>
@@ -48,8 +49,35 @@
         </button>
       </div>
       <div class="modal-body">
-        Silmek istediğinize emin misiniz?.<br/>
+        Silmek istediğinize emin misiniz?<br/>
         <button type="button" class="btn btn-primary" (click)="modalRef?.hide()">Kapat</button>
         <button type="button" class="btn btn-danger" (click)="delete()" (click)="modalRef?.hide()" routerLink="/d">Sil</button>
+      </div>
+    </ng-template>
+
+    <ng-template #template1>
+      <div class="modal-header">
+        <h4 class="modal-title pull-left">Modal</h4>
+        <button type="button" class="btn-close close pull-right" aria-label="Close" (click)="modalRef?.hide()">
+          <span aria-hidden="true" class="visually-hidden">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form #cihazAdd="ngForm" (ngSubmit)="up(cihazAdd)" id="myForm">
+        <div class="form-group">
+          <div class="col-md-6 mb-3">
+            <Label>Ucret</Label>
+          <input type="text" #ucret="ngModel" [(ngModel)]="model.ucret" class="form-control" name="ucret" id="ucret" readonly="readonly" required/>
+        </div>
+        </div>
+        <div class="form-group">
+          <div class="col-md-6 mb-3">
+            <Label>Ekle</Label>
+          <input type="text" #ucret="ngModel" [(ngModel)]="model.ekstra" class="form-control" name="ekstra" id="ekstra"  required/>
+        </div>
+        </div>
+        <button type="button" class="btn btn-primary" (click)="modalRef?.hide()">Kapat</button>
+        <button type="submit" class="btn btn-success" (click)="modalRef?.hide()" routerLink="/d">Ekle</button>
+      </form>
       </div>
     </ng-template>
