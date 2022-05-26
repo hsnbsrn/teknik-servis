@@ -60,3 +60,34 @@
     </table>
   </accordion-group>
 </accordion>
+<br><br><br>
+<accordion [isAnimated]="true" *ngFor="let i of durums">
+  <accordion-group heading="{{i.ad}}">
+    <table id="empTable" class="table table-striped" >
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Ad Soyad</th>
+          <th scope="col">Cihaz</th>
+          <th scope="col">Ucret</th>
+          <th scope="col">Telefon No</th>
+          <th scope="col">Detay</th>
+      </thead>
+      <ng-container *ngFor="let c of mcihazs">
+      <tbody *ngIf="i.id==c.durum">
+        <tr>
+          <th scope="row"></th>
+          <td scope="row">{{c.adSoyad}}</td>
+          <td scope="row">{{c.cihaz}}</td>
+          <td scope="row">{{c.ucret}}</td>
+          <td scope="row">{{c.telNo}}</td>
+          <td scope="row"> <button type="button" class="btn btn-light mr-1" data-toggle="modal" routerLink="/dDetail/{{c.id}}" ><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16">
+            <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>
+            <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z"/>
+          </svg></button></td>
+        </tr>  
+      </tbody>
+    </ng-container>
+    </table>
+  </accordion-group>
+</accordion>

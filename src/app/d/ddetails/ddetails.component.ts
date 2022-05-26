@@ -7,6 +7,8 @@ import { AlertifyService } from 'src/app/service/alertifyjs.service';
 import { IslemServiceService } from 'src/app/service/islem.service';
 import { McihazService } from 'src/app/service/mcihaz.service';
 import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
+import { DurumService } from 'src/app/service/durum.service';
+import { Durum } from 'src/app/models/durum';
 
 @Component({
   selector: 'app-ddetails',
@@ -15,19 +17,24 @@ import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
 })
 export class DdetailsComponent implements OnInit {
   modalRef?: BsModalRef;
-  constructor(private modalService: BsModalService,private islemService:IslemServiceService,private mCihazService:McihazService,private activatedRoute:ActivatedRoute,private alertify:AlertifyService) { }
+  constructor(private modalService: BsModalService,private islemService:IslemServiceService,private mCihazService:McihazService,private activatedRoute:ActivatedRoute,private alertify:AlertifyService,
+    private durumService:DurumService) { }
 
   i:number|undefined
   cihaz:Mcihaz|undefined;
   model:Mcihaz=new Mcihaz();
-  islems:Islem[]|undefined
+  islems:Islem[]|undefined;
+  durums:Durum[]|undefined;
   ngOnInit() {
     this.activatedRoute.params.subscribe(params=>{
       this.getById(params["id"]);
     });
     this.islemService.getIslem().subscribe(data=>{
       this.islems=data;
-    })
+    });
+    this.durumService.getDurum().subscribe(data=>{
+      this.durums=data;
+    });
   }
   getById(id:any){
     this.mCihazService.getMcihazById(id).subscribe(data=>{
@@ -40,7 +47,9 @@ export class DdetailsComponent implements OnInit {
       this.model.mail=this.cihaz.mail;
       this.model.telNo=this.cihaz.telNo;
       this.model.ucret=this.cihaz.ucret;
-      this.model.ekstra=this.cihaz.ekstra 
+      this.model.ekstra=this.cihaz.ekstra;
+      this.model.durum=this.cihaz.durum;  
+      console.log(this.model.durum);
     })
   }
   update(form:NgForm){

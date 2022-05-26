@@ -1,3 +1,16 @@
+
+  
+  <div class="content">
+    <h1>Cihaz Ekle</h1>
+    <div>
+      <div range-slider floor="0" ceiling="19" dragstop="true" ng-model-low="lowerValue" ng-model-high="upperValue"></div>
+    </div>
+    <button type="button" class="btn btn-warning " (click)="openModal(template1)" id="right-panel-link">Ekstra Ucret Ekle</button>
+    <button *ngIf="cihaz?.durum!=2" type="button" class="btn btn-warning " (click)="openModal(template1)" id="right-panel-link1">Tamire Al</button>
+    <button *ngIf="cihaz?.durum==2&&cihaz?.durum!=3" type="button" class="btn btn-warning " (click)="openModal(template1)" id="right-panel-link1">Beklemeye Al</button>
+    <button type="button" class="btn btn-warning " (click)="openModal(template1)" id="right-panel-link2">Bitir</button>
+  </div>
+
 <form #cihazAdd="ngForm" (ngSubmit)="update(cihazAdd)" id="myForm">
     <div class="form-group">
         <div class="col-md-6 mb-3">
@@ -40,7 +53,9 @@
     </button>
     </form>
     <button type="button" class="btn btn-danger" (click)="openModal(template)">Sil</button>
-    <button type="button" class="btn btn-warning" (click)="openModal(template1)">Ekstra Ucret Ekle</button>
+    
+
+
     <ng-template #template>
       <div class="modal-header">
         <h4 class="modal-title pull-left">Modal</h4>
