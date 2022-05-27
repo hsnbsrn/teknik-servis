@@ -1,25 +1,23 @@
-
-  
   <div class="content">
     <h1>Cihaz Ekle</h1>
     <div>
       <div range-slider floor="0" ceiling="19" dragstop="true" ng-model-low="lowerValue" ng-model-high="upperValue"></div>
     </div>
-    <button type="button" class="btn btn-warning " (click)="openModal(template1)" id="right-panel-link">Ekstra Ucret Ekle</button>
-    <button *ngIf="cihaz?.durum!=2" type="button" class="btn btn-warning " (click)="openModal(template1)" id="right-panel-link1">Tamire Al</button>
+    <button type="button" class="btn btn-warning " (click)="openModal(template4)" id="right-panel-link">Ekstra Ucret Ekle</button>
+    <button *ngIf="cihaz?.durum!=2" type="button" class="btn btn-warning " (click)="openModal(template2)" id="right-panel-link1">Tamire Al</button>
     <button *ngIf="cihaz?.durum==2&&cihaz?.durum!=3" type="button" class="btn btn-warning " (click)="openModal(template1)" id="right-panel-link1">Beklemeye Al</button>
-    <button type="button" class="btn btn-warning " (click)="openModal(template1)" id="right-panel-link2">Bitir</button>
+    <button type="button" class="btn btn-warning " (click)="openModal(template3)" id="right-panel-link2">Bitir</button>
   </div>
 
 <form #cihazAdd="ngForm" (ngSubmit)="update(cihazAdd)" id="myForm">
     <div class="form-group">
         <div class="col-md-6 mb-3">
             <Label>ID</Label>
-          <input type="text" #id="ngModel" [(ngModel)]="model.id" value="{{cihaz?.id}}" readonly="readonly"  class="form-control" name="id" id="id" required/>
+          <input type="text" #id="ngModel" [(ngModel)]="model.id"  readonly="readonly"  class="form-control" name="id" id="id" required/>
         </div>
       <div class="col-md-6 mb-3">
         <Label>Ad Soyad</Label>
-      <input type="text" #adSoyad="ngModel" [(ngModel)]="model.adSoyad" value="{{cihaz?.adSoyad}}" class="form-control" name="name" id="name" required/>
+      <input type="text" #adSoyad="ngModel" [(ngModel)]="model.adSoyad"  class="form-control" name="name" id="name" required/>
     </div>
     </div>
     <div class="form-group">
@@ -34,6 +32,7 @@
       <input type="text" #telno="ngModel" [(ngModel)]="model.telNo" class="form-control" name="phone" id="phone" required/>
     </div>
     </div>
+    
     <div class="form-group">
       <div class="col-md-6 mb-3">
         <label >İşlem</label>
@@ -45,7 +44,13 @@
     <div class="form-group">
       <div class="col-md-6 mb-3">
         <Label>Detaylı İşlem</Label>
-      <textarea type="text"  #detay="ngModel" [(ngModel)]="model.detayIslem" class="form-control" name="s" id="s" required></textarea>
+      <textarea type="text"  #detay="ngModel" [(ngModel)]="model.detayIslem" class="form-control" name="i" id="i" required></textarea>
+    </div>
+    </div>
+    <div class="form-group">
+      <div class="col-md-6 mb-3">
+        <Label>Getirilen</Label>
+      <textarea type="text"  #getirilen="ngModel" [(ngModel)]="model.getirilen" class="form-control" name="s" id="s" required></textarea>
     </div>
     </div>
     <button type="submit" class="btn btn-primary" >
@@ -58,7 +63,7 @@
 
     <ng-template #template>
       <div class="modal-header">
-        <h4 class="modal-title pull-left">Modal</h4>
+        <h4 class="modal-title pull-left">Sil</h4>
         <button type="button" class="btn-close close pull-right" aria-label="Close" (click)="modalRef?.hide()">
           <span aria-hidden="true" class="visually-hidden">&times;</span>
         </button>
@@ -72,6 +77,54 @@
 
     <ng-template #template1>
       <div class="modal-header">
+        <h4 class="modal-title pull-left">Beklemeye Al</h4>
+        <button type="button" class="btn-close close pull-right" aria-label="Close" (click)="modalRef?.hide()">
+          <span aria-hidden="true" class="visually-hidden">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form #cihazAdd="ngForm" (ngSubmit)="up2(cihazAdd)" id="myForm">
+        Beklemeye almak istediğinizden emin misiniz?<br/>
+        <button type="button" class="btn btn-primary" (click)="modalRef?.hide()">Kapat</button>
+        <button type="submit" class="btn btn-success" (click)="modalRef?.hide()" routerLink="/d">Beklemeye Al</button>
+      </form>
+      </div>
+    </ng-template>
+
+    <ng-template #template2>
+      <div class="modal-header">
+        <h4 class="modal-title pull-left">Tamire Al</h4>
+        <button type="button" class="btn-close close pull-right" aria-label="Close" (click)="modalRef?.hide()">
+          <span aria-hidden="true" class="visually-hidden">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form #cihazAdd="ngForm" (ngSubmit)="up1(cihazAdd)" id="myForm">
+        Tamire almak istediğinizden emin misiniz?<br/>
+        <button type="button" class="btn btn-primary" (click)="modalRef?.hide()">Kapat</button>
+        <button type="submit" class="btn btn-success" (click)="modalRef?.hide()" routerLink="/d">Tamire Al</button>
+      </form>
+      </div>
+    </ng-template>
+
+    <ng-template #template3>
+      <div class="modal-header">
+        <h4 class="modal-title pull-left">Tamire Al</h4>
+        <button type="button" class="btn-close close pull-right" aria-label="Close" (click)="modalRef?.hide()">
+          <span aria-hidden="true" class="visually-hidden">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form #cihazAdd="ngForm" (ngSubmit)="up3(cihazAdd)" id="myForm">
+        Tamiri bitirmek istediğinizden emin misiniz?<br/>
+        <button type="button" class="btn btn-primary" (click)="modalRef?.hide()">Kapat</button>
+        <button type="submit" class="btn btn-success" (click)="modalRef?.hide()" routerLink="/d">Bitir</button>
+      </form>
+      </div>
+    </ng-template>
+
+    <ng-template #template4>
+      <div class="modal-header">
         <h4 class="modal-title pull-left">Modal</h4>
         <button type="button" class="btn-close close pull-right" aria-label="Close" (click)="modalRef?.hide()">
           <span aria-hidden="true" class="visually-hidden">&times;</span>
@@ -83,6 +136,12 @@
           <div class="col-md-6 mb-3">
             <Label>Ucret</Label>
           <input type="text" #ucret="ngModel" [(ngModel)]="model.ucret" class="form-control" name="ucret" id="ucret" readonly="readonly" required/>
+        </div>
+        </div>
+        <div class="form-group">
+          <div class="col-md-6 mb-3">
+            <Label>İşlem</Label>
+          <input type="text" #islem="ngModel" [(ngModel)]="model.detayIslem" class="form-control" name="islem" id="islem"  required/>
         </div>
         </div>
         <div class="form-group">

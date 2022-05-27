@@ -48,13 +48,15 @@ export class DdetailsComponent implements OnInit {
       this.model.telNo=this.cihaz.telNo;
       this.model.ucret=this.cihaz.ucret;
       this.model.ekstra=this.cihaz.ekstra;
-      this.model.durum=this.cihaz.durum;  
+      this.model.durum=this.cihaz.durum;
+      this.model.getirilen=this.cihaz.getirilen;  
       console.log(this.model.durum);
     })
   }
   update(form:NgForm){
     this.mCihazService.updateCihaz(this.model).subscribe(data=>{})
     this.alertify.success("Güncellendi");
+    console.log(this.model.durum);
   }
   delete(){
     this.mCihazService.deleteCİhaz(this.model.id).subscribe(()=>{
@@ -78,6 +80,23 @@ export class DdetailsComponent implements OnInit {
     console.log("j "+j)
     console.log("t "+t)
     this.model.ucret = t;
+    this.mCihazService.updateCihaz(this.model).subscribe(data=>{})
+    this.alertify.success("Güncellendi");
+  }
+  up1(form:NgForm){
+    this.model.durum=2;
+    this.mCihazService.updateCihaz(this.model).subscribe(data=>{})
+    this.alertify.success("Güncellendi");
+  }
+
+  up2(form:NgForm){
+    this.model.durum=3;
+    this.mCihazService.updateCihaz(this.model).subscribe(data=>{})
+    this.alertify.success("Güncellendi");
+  }
+
+  up3(form:NgForm){
+    this.model.durum=1002;
     this.mCihazService.updateCihaz(this.model).subscribe(data=>{})
     this.alertify.success("Güncellendi");
   }
