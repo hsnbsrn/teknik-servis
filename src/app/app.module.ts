@@ -14,14 +14,16 @@ import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { DdetailsComponent } from './d/ddetails/ddetails.component';
 import { ModalModule } from 'ngx-bootstrap/modal';
 import { IslemComponent } from './islem/islem.component';
+import { PersonelComponent } from './personel/personel.component';
 
 @NgModule({
-  declarations: [				
+  declarations: [					
     AppComponent,
       NdComponent,
       DComponent,
       DdetailsComponent,
-      IslemComponent
+      IslemComponent,
+      PersonelComponent
    ],
   imports: [
     BrowserModule,
