@@ -49,8 +49,9 @@ export class DdetailsComponent implements OnInit {
       this.model.ucret=this.cihaz.ucret;
       this.model.ekstra=this.cihaz.ekstra;
       this.model.durum=this.cihaz.durum;
-      this.model.getirilen=this.cihaz.getirilen;  
-      console.log(this.model.durum);
+      this.model.getirilen=this.cihaz.getirilen; 
+      this.model.personel=this.cihaz.personel; 
+      console.log(this.model.personel);
     })
   }
   update(form:NgForm){

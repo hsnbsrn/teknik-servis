@@ -1,3 +1,17 @@
-<p>
-  personelDetay works!
-</p>
+<form #personelAdd="ngForm" (ngSubmit)="update(personelAdd)" id="myForm">
+  <div class="form-group">
+    <div class="col-md-6 mb-3">
+      <Label>ID</Label>
+    <input type="text" #id="ngModel" [(ngModel)]="model.id" class="form-control" name="id" id="id" required/>
+  </div>
+  </div>
+  <div class="form-group">
+    <div class="col-md-6 mb-3">
+      <Label>Personel</Label>
+    <input type="text" #adSoyad="ngModel" [(ngModel)]="model.adSoyad" class="form-control" name="name" id="name" required/>
+  </div>
+  </div>
+  <button type="submit" class="btn btn-primary" >
+    Ekle
+  </button>
+  </form>

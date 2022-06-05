@@ -1,4 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { NgForm } from '@angular/forms';
+import { ActivatedRoute } from '@angular/router';
+import { Personel } from 'src/app/models/personel';
+import { AlertifyService } from 'src/app/service/alertifyjs.service';
+import { PersonelService } from 'src/app/service/personel.service';
 
 @Component({
   selector: 'app-personelDetay',
@@ -7,9 +12,32 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PersonelDetayComponent implements OnInit {
 
-  constructor() { }
-
+  constructor(private personelService:PersonelService,private alertify:AlertifyService,private activatedRoute:ActivatedRoute) { }
+  personel:Personel|undefined;
+  personels:Personel[]|undefined;
+  model:Personel=new Personel();
   ngOnInit() {
+    this.activatedRoute.params.subscribe(params=>{
+      this.getById(params["id"]);
+    });
   }
 
+  getById(id:any){
+    this.personelService.getPersonelById(id).subscribe(data=>{
+      this.personel=data;
+      this.model.id=this.personel.id;
+      this.model.adSoyad=this.personel.adSoyad;
+      this.model.aktifmi=this.personel.aktifmi;
+      console.log(data);
+    });
+  }
+  update(form:NgForm){
+    console.log(this.model);
+    this.personelService.updatePersonel(this.model).subscribe(data=>{})
+    this.alertify.success("Güncellendi");
+  }
+  delete(){
+    this.personelService.deletePersonel(this.model.id).subscribe(data=>{})
+    this.alertify.success("Silindi");
+  }
 }

@@ -13,4 +13,5 @@ export class Mcihaz {
     cihaz:string|undefined
     ucret:number|undefined
     ekstra:string|undefined
+    personel:number|undefined
 }

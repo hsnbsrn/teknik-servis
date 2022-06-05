@@ -15,6 +15,7 @@ import { DdetailsComponent } from './d/ddetails/ddetails.component';
 import { ModalModule } from 'ngx-bootstrap/modal';
 import { IslemComponent } from './islem/islem.component';
 import { PersonelComponent } from './personel/personel.component';
+import { PersonelDetayComponent } from './personel/personelDetay/personelDetay.component';
 
 @NgModule({
   declarations: [					
@@ -23,7 +24,8 @@ import { PersonelComponent } from './personel/personel.component';
       DComponent,
       DdetailsComponent,
       IslemComponent,
-      PersonelComponent
+      PersonelComponent,
+      PersonelDetayComponent
    ],
   imports: [
     BrowserModule,
