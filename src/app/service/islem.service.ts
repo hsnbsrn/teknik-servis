@@ -9,7 +9,7 @@ export class IslemServiceService {
 
   constructor(private httpClient:HttpClient) { }
 
-  path="https://localhost:7091/api/islems"
+  path="https://localhost:7091/api/islems/"
   handleError(err: HttpErrorResponse){
     let errorMesage="";
     

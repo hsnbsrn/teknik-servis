@@ -14,4 +14,5 @@ export class Mcihaz {
     ucret:number|undefined
     ekstra:string|undefined
     personel:number|undefined
+    persad:string|undefined
 }

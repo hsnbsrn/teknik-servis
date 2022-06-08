@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, TemplateRef } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
+import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
 import { Personel } from 'src/app/models/personel';
 import { AlertifyService } from 'src/app/service/alertifyjs.service';
 import { PersonelService } from 'src/app/service/personel.service';
@@ -11,8 +12,8 @@ import { PersonelService } from 'src/app/service/personel.service';
   styleUrls: ['./personelDetay.component.css']
 })
 export class PersonelDetayComponent implements OnInit {
-
-  constructor(private personelService:PersonelService,private alertify:AlertifyService,private activatedRoute:ActivatedRoute) { }
+  modalRef?: BsModalRef;
+  constructor(private personelService:PersonelService,private alertify:AlertifyService,private activatedRoute:ActivatedRoute,private modalService:BsModalService) { }
   personel:Personel|undefined;
   personels:Personel[]|undefined;
   model:Personel=new Personel();
@@ -39,5 +40,8 @@ export class PersonelDetayComponent implements OnInit {
   delete(){
     this.personelService.deletePersonel(this.model.id).subscribe(data=>{})
     this.alertify.success("Silindi");
+  }
+  openModal(template: TemplateRef<any>) {
+    this.modalRef = this.modalService.show(template);
   }
 }

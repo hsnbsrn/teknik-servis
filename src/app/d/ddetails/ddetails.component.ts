@@ -51,7 +51,8 @@ export class DdetailsComponent implements OnInit {
       this.model.durum=this.cihaz.durum;
       this.model.getirilen=this.cihaz.getirilen; 
       this.model.personel=this.cihaz.personel; 
-      console.log(this.model.personel);
+      this.model.persad=this.cihaz.persad;
+      console.log(this.model.persad);
     })
   }
   update(form:NgForm){
@@ -98,6 +99,7 @@ export class DdetailsComponent implements OnInit {
 
   up3(form:NgForm){
     this.model.durum=1002;
+    console.log(this.model);
     this.mCihazService.updateCihaz(this.model).subscribe(data=>{})
     this.alertify.success("Güncellendi");
   }

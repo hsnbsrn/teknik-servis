@@ -1,3 +1,41 @@
-<p>
-  islemd works!
-</p>
+<form #islemAdd="ngForm" (ngSubmit)="update(islemAdd)" id="myForm">
+  <div class="form-group">
+    <div class="col-md-6 mb-3">
+      <Label>ID</Label>
+    <input type="text" #adSoyad="ngModel" [(ngModel)]="model.id" class="form-control" name="name" id="name" readonly="readonly" required/>
+  </div>
+  </div>
+  <div class="form-group">
+    <div class="col-md-6 mb-3">
+      <Label>İşlem</Label>
+    <input type="text" #adSoyad="ngModel" [(ngModel)]="model.ad" class="form-control" name="name" id="name" required/>
+  </div>
+  </div>
+  <div class="form-group">
+    <div class="col-md-6 mb-3">
+      <Label>Ucret</Label>
+    <input type="text" #mail="ngModel" [(ngModel)]="model.ucret" class="form-control" name="mail" id="mail" required/>
+  </div>
+  </div>
+  <button type="submit" class="btn btn-primary" >
+    Güncelle
+  </button>
+  </form>
+  <br><br><br>
+  <button type="button" class="btn btn-danger" (click)="openModal(template)">Sil</button>
+    
+
+
+    <ng-template #template>
+      <div class="modal-header">
+        <h4 class="modal-title pull-left">Sil</h4>
+        <button type="button" class="btn-close close pull-right" aria-label="Close" (click)="modalRef?.hide()">
+          <span aria-hidden="true" class="visually-hidden">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        Silmek istediğinize emin misiniz?<br/>
+        <button type="button" class="btn btn-primary" (click)="modalRef?.hide()">Kapat</button>
+        <button type="button" class="btn btn-danger" (click)="delete()" (click)="modalRef?.hide()" routerLink="/islem">Sil</button>
+      </div>
+    </ng-template>

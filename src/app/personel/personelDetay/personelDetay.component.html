@@ -12,6 +12,22 @@
   </div>
   </div>
   <button type="submit" class="btn btn-primary" >
-    Ekle
+    Güncelle
   </button>
   </form>
+  <br><br>
+  <button type="button" class="btn btn-danger" (click)="openModal(template)">Sil</button>
+
+  <ng-template #template>
+    <div class="modal-header">
+      <h4 class="modal-title pull-left">Sil</h4>
+      <button type="button" class="btn-close close pull-right" aria-label="Close" (click)="modalRef?.hide()">
+        <span aria-hidden="true" class="visually-hidden">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+      Silmek istediğinize emin misiniz?<br/>
+      <button type="button" class="btn btn-primary" (click)="modalRef?.hide()">Kapat</button>
+      <button type="button" class="btn btn-danger" (click)="delete()" (click)="modalRef?.hide()" routerLink="/personel">Sil</button>
+    </div>
+  </ng-template>
